@@ -2,8 +2,6 @@ package com.example.entities;
 
 import java.util.Date;
 
-import javax.annotation.processing.Generated;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
