@@ -2,9 +2,6 @@ package com.example.entities;
 
 import java.util.Date;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,23 +16,25 @@ import lombok.Setter;
 @Table(name = "countries")
 @Getter
 @Setter
-public class countries {
+public class Country {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "Country_ID")
+    @Column(name = "Cart_ID")
     private Long countryId;
     
-    @Column(name = "Country")
+    @Column(name = "Package_Price")
     private String country;
 
-    @Column(name = "Create_date")
-    @CreationTimestamp
+    @Column(name = "Party_Size")
     private Date createDate;
 
-    @Column(name = "Last_Update")
-    @UpdateTimestamp
+    @Column(name = "Status")
     private Date lastUpdate;
+
+    @Column(name = "Order_Tracking_Number")
+
+
 
 
 

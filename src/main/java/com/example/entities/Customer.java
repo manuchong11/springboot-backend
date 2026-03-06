@@ -19,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class Customers {
+public class Customer {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)

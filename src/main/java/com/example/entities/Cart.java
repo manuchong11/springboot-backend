@@ -14,30 +14,27 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "Divisions")
+@Table(name = "countries")
 @Getter
 @Setter
-
-public class Divisions {
+public class Cart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "Division_ID")
-    private Long divisionId;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "Country_ID")
+    private Long countryId;
+    
+    @Column(name = "Country")
+    private String country;
 
-    @Column(name = "Division")
-    private String division;
-
-    @Column(name = "Create_Date")
+    @Column(name = "Create_date")
     @CreationTimestamp
     private Date createDate;
 
     @Column(name = "Last_Update")
     @UpdateTimestamp
     private Date lastUpdate;
-
-    @Column(name = "Country_ID")
-    private Long countryId;
 
 }
