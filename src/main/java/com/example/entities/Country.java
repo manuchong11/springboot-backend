@@ -2,6 +2,9 @@ package com.example.entities;
 
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,21 +23,19 @@ public class Country {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "Cart_ID")
+    @Column(name = "country_id")
     private Long countryId;
     
-    @Column(name = "Package_Price")
+    @Column(name = "country")
     private String country;
 
-    @Column(name = "Party_Size")
+    @Column(name = "create_date")
+    @CreationTimestamp
     private Date createDate;
 
-    @Column(name = "Status")
+    @Column(name = "last_update")
+    @UpdateTimestamp
     private Date lastUpdate;
-
-    @Column(name = "Order_Tracking_Number")
-
-
 
 
 
