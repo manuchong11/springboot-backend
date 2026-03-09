@@ -7,6 +7,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,24 +26,23 @@ public class Cart {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "cart_id")
-    private Long countryId;
+    private Long ;
     
     @Column(name = "package_price")
-    private String country;
+    private Long package_price;
 
     @Column(name = "party_size")
-    @CreationTimestamp
-    private Date createDate;
+    private int party_size;
 
     @Column(name = "status")
-    @UpdateTimestamp
-    private Date lastUpdate;
+    @Enumerated(EnumType.STRING)
+    private StatusType status;
 
     @Column(name = "order_tracking_number")
-    private;
+    private String orderTrackingNumber;
 
     @Column(name = "create_date")
-    private;
+    private Date;
 
     @Column(name = "last_update")
     private;
