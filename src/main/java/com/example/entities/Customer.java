@@ -49,7 +49,8 @@ public class Customer {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @Column(name = "Division_ID")
-    private Long divisionId;
+    private Division division;
+
+    private Set<Cart> carts = new HashSet<>();
 
 }

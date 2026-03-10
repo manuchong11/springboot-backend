@@ -1,5 +1,12 @@
 package com.example.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class CartItem {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

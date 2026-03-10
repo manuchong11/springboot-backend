@@ -1,6 +1,12 @@
 package com.example.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 public class Excursion {
+    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "cart_id")
@@ -13,9 +19,6 @@ public class Excursion {
     @CreationTimestamp
     private Date createDate;
 
-    @Column(name = "status")
-    @UpdateTimestamp
-    private Date lastUpdate;
 
     @Column(name = "order_tracking_number")
     private;
