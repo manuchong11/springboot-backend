@@ -58,7 +58,7 @@ public class Customer {
     @JoinColumn(name = "division_id")
     private Division division;
 
-    
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts = new HashSet<>();
 
 }
