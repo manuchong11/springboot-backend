@@ -1,5 +1,8 @@
 package com.example.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Vacation {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -7,23 +10,25 @@ public class Vacation {
     private Long countryId;
     
     @Column(name = "package_price")
-    private String country;
+    private String;
 
     @Column(name = "party_size")
-    @CreationTimestamp
-    private Date createDate;
+    private String;
 
     @Column(name = "status")
-    @UpdateTimestamp
-    private Date lastUpdate;
+    private BigDecimal;
 
     @Column(name = "order_tracking_number")
-    private;
+    private String;
 
     @Column(name = "create_date")
-    private;
+    @CreationTimestamp
+    private Date;
 
     @Column(name = "last_update")
-    private;
+    @Deprecated
+    private Date;
+
+    private Set<Excursion> excursions = new HashSet<>();
 
 }

@@ -1,5 +1,8 @@
 package com.example.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,20 +16,23 @@ public class Excursion {
     private Long countryId;
     
     @Column(name = "package_price")
-    private String country;
+    private String;
 
     @Column(name = "party_size")
-    @CreationTimestamp
-    private Date createDate;
-
+    private BigDecimal;
 
     @Column(name = "order_tracking_number")
-    private;
+    private String;
 
     @Column(name = "create_date")
-    private;
+    private Date;
 
     @Column(name = "last_update")
-    private;
+    private Date;
+
+    private Vacation vacation;
+
+    private Set<CartItem> cartItems = new HashSet<>();
+    
 
 }
