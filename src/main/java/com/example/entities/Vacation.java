@@ -1,44 +1,48 @@
 package com.example.entities;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+@Entity
+@Table(name = "vacations")
+@Getter
+@Setter
 public class Vacation {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "cart_id")
+    @Column(name = "vacation_id")
     private Long countryId;
-    
-    @Column(name = "package_price")
-    private String;
-
-    @Column(name = "party_size")
-    private String;
-
-    @Column(name = "status")
-    private BigDecimal;
-
-    @Column(name = "order_tracking_number")
-    private String;
-
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date;
-
+    private Date create_date;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "image_url")
+    private String image_URL;
     @Column(name = "last_update")
-    private Date;
-
+    @UpdateTimestamp
+    private Date last_update;
+    @Column(name = "travel_fare_price")
+    private BigDecimal travel_price;
+    @Column(name = "vacation_title")
+    private String vacation_title;
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
     private Set<CartItem> cartItems = new HashSet<>();
-
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
     private Set<Excursion> excursions = new HashSet<>();
-
 }

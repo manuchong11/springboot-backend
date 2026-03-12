@@ -7,6 +7,7 @@ import java.util.Set;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,51 +15,38 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
 @Entity
-@Table(name = "Customers")
+@Table(name = "customers")
 @Getter
 @Setter
-
 public class Customer {
-
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    @Column(name = "Customer_ID")
-    private Long customerId;
-
-    @Column(name = "First_Name" )
-    private String firstName;
-
-    @Column(name = "Last_Name")
-    private String lastName;
-
-    @Column(name = "Address")
+    @Column(name = "customer_id")
+    private Long id;
+    @Column(name = "address" )
     private String address;
-
-    @Column(name = "Postal_Code")
-    private String postalCode;
-
-    @Column(name = "Phone")
-    private String phone;
-
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     @CreationTimestamp
-    private Date createDate;
-
-    @Column(name = "Last_Update")
+    private Date create_date;
+    @Column(name = "customer_first_name")
+    private String firstName;
+    @Column(name = "customer_last_name")
+    private String lastName;
+    @Column(name = "last_update")
     @UpdateTimestamp
-    private Date lastUpdate;
-
-   
+    private Date  last_update;
+    @Column(name = "phone")
+    private String phone;
+    @Column(name = "postal_code")
+    private String postal_code;
     @ManyToOne
     @JoinColumn(name = "division_id")
     private Division division;
-
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts = new HashSet<>();
-
 }

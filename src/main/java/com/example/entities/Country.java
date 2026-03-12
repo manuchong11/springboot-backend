@@ -1,6 +1,7 @@
 package com.example.entities;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,33 +17,23 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-
 @Entity
 @Table(name = "countries")
 @Getter
 @Setter
 public class Country {
-
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "country_id")
-    private Long countryId;
-    
+    private Long id;
     @Column(name = "country")
-    private String country;
-
+    private String country_name;
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date createDate;
-
+    private Date create_date;
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date lastUpdate;
-
+    private Date last_update;
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-    private Set<Division> divisions;
-
-
-
+    private Set<Division> divisions = new HashSet<>();
 }

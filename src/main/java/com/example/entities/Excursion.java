@@ -1,42 +1,50 @@
 package com.example.entities;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+@Entity
+@Table(name = "excursions")
+@Getter
+@Setter
 public class Excursion {
-    
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "cart_id")
-    private Long countryId;
-    
-    @Column(name = "package_price")
-    private String;
-
-    @Column(name = "party_size")
-    private BigDecimal;
-
-    @Column(name = "order_tracking_number")
-    private String;
-
+    @Column(name = "excursion_id")
+    private Long id;
     @Column(name = "create_date")
-    private Date;
-
+    @CreationTimestamp
+    private Date create_date;
+    @Column(name = "excursion_price")
+    private BigDecimal excursion_price;
+    @Column(name = "excursion_title")
+    private String excursion_title;
+    @Column(name = "image_url")
+    private String image_URL;
     @Column(name = "last_update")
-    private Date;
-
+    @UpdateTimestamp
+    private Date last_update;
     @ManyToOne
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
-
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "excursion_id"), inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
     private Set<CartItem> cartItems = new HashSet<>();
-    
-
 }
