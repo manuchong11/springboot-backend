@@ -49,4 +49,12 @@ public class Customer {
     private Division division;
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts = new HashSet<>();
+
+    public void add(Cart cart) {
+       if  (carts == null) {
+            carts = new HashSet<>();
+        }
+        carts.add(cart);
+        cart.setCustomer(this);
+    }
 }

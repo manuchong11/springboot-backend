@@ -9,6 +9,7 @@ import com.example.doa.CartRepository;
 import com.example.doa.CustomerRepository;
 import com.example.entities.Cart;
 import com.example.entities.CartItem;
+import com.example.entities.Customer;
 
 import static jakarta.persistence.GenerationType.UUID;
 import jakarta.transaction.Transactional;
@@ -41,7 +42,7 @@ public class CheckoutServiceImpl implements CheckoutService {
         Customer customer = purchase.getCustomer();
         customer.add(cart);
         CustomerRepository.save(customer);
-        return new purchaseResponse(orderTrackingNumber);
+        return new PurchaseResponse(orderTrackingNumber);
     }
     }
 
