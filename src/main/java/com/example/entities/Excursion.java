@@ -14,7 +14,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -44,7 +43,7 @@ public class Excursion {
     @ManyToOne
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
-    @ManyToMany
-    @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "excursion_id"), inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
+    @ManyToMany(mappedBy = "excursions")
     private Set<CartItem> cartItems = new HashSet<>();
 }
+

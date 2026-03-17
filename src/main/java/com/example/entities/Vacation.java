@@ -26,7 +26,7 @@ public class Vacation {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "vacation_id")
-    private Long countryId;
+    private Long id;
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
@@ -46,3 +46,4 @@ public class Vacation {
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
     private Set<Excursion> excursions = new HashSet<>();
 }
+

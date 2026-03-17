@@ -22,6 +22,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
 @Entity
 @Table(name = "carts")
 @Getter
@@ -50,15 +51,15 @@ public class Cart {
     @JoinColumn(name = "customer_id")
     private Customer customer;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private Set<CartItem> cartItem = new HashSet<>();
-
+    private Set<CartItem> cartItems = new HashSet<>();
     public void add(CartItem item) {
         if (item != null) {
-            if (cartItem == null) {
-                cartItem = new HashSet<>();
+            if (cartItems == null) {
+                cartItems = new HashSet<>();
             }
-            cartItem.add(item);
+            cartItems.add(item);
             item.setCart(this);
         }
     } 
 }
+
